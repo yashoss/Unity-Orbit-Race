@@ -10,6 +10,9 @@ public class OrbitParent : MonoBehaviour
 
     private Vector3 zAxis = new Vector3(0, 0, 1);
 
+
+    private float rotationAmount = 0;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -22,7 +25,13 @@ public class OrbitParent : MonoBehaviour
         }
         if (isRotating)
         {
-            transform.RotateAround(circle.position, zAxis, speed * Time.deltaTime);
+            rotationAmount = (rotationAmount + speed * Time.deltaTime) % 360f;
         }
+
+        // Recalculate the position and rotation of thruster every update step
+        // in case circle/ball is still moving
+        transform.position = circle.position + Vector3.down;
+        transform.rotation = Quaternion.identity;
+        transform.RotateAround(circle.position, zAxis, rotationAmount);
     }
 }
