@@ -6,9 +6,14 @@ public class OrbitParent : MonoBehaviour
 {
     public float speed;
     public bool isRotating = true;
-    public Transform circle;
+    public Transform parent;
 
     private Vector3 zAxis = new Vector3(0, 0, 1);
+
+    void Start()
+    {
+     //   thisTransform.position = thisTransform.position + new Vector3(0, 0, 0);
+    }
 
     void Update()
     {
@@ -22,7 +27,7 @@ public class OrbitParent : MonoBehaviour
         }
         if (isRotating)
         {
-            transform.RotateAround(circle.position, zAxis, speed * Time.deltaTime);
+           transform.RotateAround(parent.position, zAxis, speed * Time.deltaTime);
         }
     }
 }

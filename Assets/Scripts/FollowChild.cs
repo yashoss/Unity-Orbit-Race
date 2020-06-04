@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FollowChild : MonoBehaviour
 {
-    // Update is called once per frame
-    void Start()
+    public Transform circleTransform;
+
+    void Update()
     {
-        transform.position = transform.Find("Circle").position;
+        transform.position = circleTransform.position;
     }
 }
