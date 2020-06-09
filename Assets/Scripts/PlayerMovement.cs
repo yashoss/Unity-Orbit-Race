@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public int speed = 100;
-    public float testVelocityX = 0.5f;
-    public float testVelocityY = 0.0f;
     public Transform thrusterTransform;
 
     public float friction = 0.1f;

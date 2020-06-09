@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbitParent : MonoBehaviour
+public class OrbitObject : MonoBehaviour
 {
     public float speed;
     public bool isRotating = true;
