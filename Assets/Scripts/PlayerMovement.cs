@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public int speed = 100;
     public Transform thrusterTransform;
+    public ParticleSystem thrusterFireParticles;
 
     public float friction = 0.1f;
 
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         if  (Input.GetKeyUp(KeyCode.Space))
         {
             print("space key released");
+            thrusterFireParticles.Play();
             // Angle of the thruster relative to the Z axis in radians.
             thrusterAngle = thrusterTransform.rotation.eulerAngles.z * Mathf.Deg2Rad;
             rb.velocity = new Vector2(-Mathf.Sin(thrusterAngle) * speed, Mathf.Cos(thrusterAngle) * speed);
